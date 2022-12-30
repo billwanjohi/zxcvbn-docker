@@ -1,0 +1,18 @@
+---
+services:
+
+  cli:
+
+    build: "."
+
+    entrypoint: "node"
+    command:
+      - "-i"
+      - "-e"
+      - "const score = require('zxcvbn')"
+
+    # this is critical! you don't want this to be able to phone home
+    network_mode: "none"
+
+    # you don't want any persistence or connection to your host system
+    volumes: []
