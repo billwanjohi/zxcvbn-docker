@@ -117,14 +117,16 @@ so that you don't have to worry about clipboard access.
 
 ## Cleanup
 
-- Call `process.exit()` or press ctrl-d to exit the container
-- Run the following to be sure that you have no dangling containers or volumes left over:
+1.  Call `process.exit()` or press ctrl-d to exit the container
+2.  [optional] Run the following to be sure that you have no dangling containers or volumes left over:
 
-  ```shell
-  ❯ docker compose down --remove-orphans --volumes
-  Warning: No resource found to remove for project "zxcvbn-docker".
-  ```
+    ```shell
+    ❯ docker compose down --remove-orphans --volumes
+    Warning: No resource found to remove for project "zxcvbn-docker".
+    ```
 
-- Close this terminal tab/window as soon as you are done testing
+    (There should be no resources, but it doesn't hurt to verify.)
+
+3.  Close the terminal tab/window as soon as you are done testing
 
 And that's it! There should be no trace of your tests at this point.
