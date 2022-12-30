@@ -25,20 +25,17 @@ You do still need to trust:
 - your operating system, to not be recording screenshots
 - your keyboard (and USB hub), to not have a keylogger
 
-## Requirements
+### More Detail
 
-- [Docker Compose](https://docs.docker.com/compose/install/)
+While the Bitwarden site and most tools offer an all-in assessment of password strength,
+zxcvbn actually presents quite a bit more detail that I haven't seen exposed in a web interface.
 
-## Execution
+If you want some more detail on, for example, how a cracker might split your password into more easily-guessed chunks, this raw output might be for you.
 
-```shell
-❯ docker compose run --rm cli
-```
-
-The --rm option tells Docker to dispose of the container on exit
+<details>
+<summary>Example Output</summary>
 
 ```javascript
-> score('correcthorse')
 {
   password: 'correcthorse',
   guesses: 1608280,
@@ -96,6 +93,23 @@ The --rm option tells Docker to dispose of the container on exit
     suggestions: [ 'Add another word or two. Uncommon words are better.' ]
   }
 }
+```
+</details>
+
+## Requirements
+
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+## Execution
+
+```shell
+❯ docker compose run --rm cli
+```
+
+The --rm option tells Docker to dispose of the container on exit
+
+```javascript
+> score('correcthorse')
 ```
 
 I recommend you transfer any results by manually typing into a password manager or writing with pen and paper,
